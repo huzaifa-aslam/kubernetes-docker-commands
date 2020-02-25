@@ -1,0 +1,250 @@
+sudo apt-get install docker.io
+docker --version
+docker info
+docker version
+docker image pull alpine(img-name):latest // to download  official image form docker hub 
+docker image -it aamirpinger/helloworld(user-name/image-name) sh // to download unofficial image from docker hub
+sudo docker run -it aamirpinger/helloworld sh // to run container in interactive mood(it) and use 'exit' to exit from container
+sudo docker run -d aamirpinger/helloworld // to run container in detech mood(in background)
+sudo docker exec -it con-name sh // to re-enter into a running contianer
+docker image rm alpine:latest  // to remove an image
+docker image ls
+docker images // to display all images
+
+cat <file-name> > <new-file-name>
+
+rm -R <folder-name> // to delete folder
+
+sudo docker container ls
+ctrl+p+q // to passive quit from container
+sudo docker container f48a881e6a9d container-name 
+sudo docker ps -a // to list all running and non running containers
+docker ps // to list all running containers
+sudo docker container start con-name
+sudo docker container stop con-name
+sudo docker container rm con-name
+sudo docker run -d --name con-name aamirpinger/helloworld   //con=container
+// to run app in browser
+sudo docker run -d -p 9000:80 aamirpinger/helloworld
+
+docker images // to list all downloaded images
+sudo docker commit a6f3a4a17c46(con-id) mycon(your-con-name) // to commit running container
+docker ps -q //to delete all container
+
+//      commmands Push code onto docker
+sudo docker login
+service nginx start
+28-jan-2020 commands
+
+ docker image build -t html_js_app .(dot indicates current file) 
+cat Dockerfile // copy files
+sudo docker tag node_js(file_name) huzaifaslam/node_js(user-name/app-name) // step_1 to push image onto docker hub
+sudo docker push huzaifaslam/node_js(user-name/app-name)// step_2 to push image onto docker hub
+docker pull msaadh909/html-js-app(usr-name/app-name) // to pull image from hub
+ng
+
+30-jan-2020 thursday
+nginx is web server
+http :80 // no security
+https:443 + ssl // security certificate(more secure)
+sudo docker build . -t myapp // to make image
+
+systemctl start docker // to start docker on startup
+bint mount
+	to store the info about container if the contaienr is deleted
+
+
+docker run -d -v path:path  -p 8500:80 nginx
+sudo docker run -d -v "$(pwd)":/usr/share/nginx/html -p=9005:80 nginx // to share volumel //unofficial
+docker volume create <name> // to create directory for bachup file
+sudo docker run --name=<con-name> -d -v vol-name:/usr/share/nginx/html -p=9005:80 nginx // to connect backup directory with container
+BIND MOUNTS
+SYNTAX => sudo docker run   -d -p=<client port>:<image port> --name=<container name> -v=<path of volume>:<binding path for image> <image name>
+Volume
+SYNTAX => sudo docker run -d -p=<client port>:<image port> --name=<container name> -v=<volume name>:<binding path for image> <image name>
+docker volume ls
+docker volume inspect <name>(volume-name) 
+sudo docker exec -it <con-id> sh
+
+***************	minikube****************************
+
+minikube start
+
+minikube status
+
+kubectl cluster-info
+
+kubectl get nodes // to show nodes
+
+kubectl describe nodes minikube // info about nodes
+
+alias kg="kubectl get" // to make short hand of any word
+
+alias kd="kubectl  describe"
+
+what is pods ?
+
+nano firstpod.yaml // to create yaml file
+kind: Pod
+apiVersion: v1
+metadata:
+ name: firstpod
+spec:
+ containers:
+  - name: firstcontainer(name of container)
+    image: aamirpinger/helloworld (img-name)
+    ports:
+     - containerPort: 80
+ kubectl create -f firstpod.yaml(file-name) // to create yaml port  // its a imperative approach
+ kubectl apply -f firstpod.yaml(file-name) // to create yaml port // its a decletative approach
+  
+kubectl get pods // to show pods
+
+kubectl get pod firstpod(pod-name) -o yaml // to get yaml file
+
+OR 
+
+k run <new-pod-name> run --generator=run-pod/v1 --image <img-name> -o yaml // step-1   to get yaml file
+k run <new-pod-name> run --generator=run-pod/v1 --image <img-name> -o yaml > <file-name.yaml> // step-2
+
+kubectl port-forward firstpod <external-prt>:<internal-port>
+
+kubectl explain pod --recursive |less // detail about yaml file
+
+OR
+
+kubectl explain pod --recursive  // detail about yaml file
+
+k run <pod-name> --dry-run --image <img-name> // create pod at client side
+
+classroom= cluster
+
+laptops= nodes
+
+application= Pod
+
+multicontainer pod = morethan one pods in one container
+
+sudo kubectl apply -f <file-name.yaml> 
+
+k get pods -l <label-name> // to get pods form labels-name
+
+ get pods -l <label-name=value> // to get pods form of value labels-name
+
+kubectl label pod <pod-name> <label-name-> // to delete label
+
+kubectl label pods --all <label-name=value> // assign label to all pods
+
+kubectl label pod <pod-name> <label-name=value> // assign label
+
+kubectl label --overwrite pod <pod-name> <label-name=value> // to over-write a label
+
+kubectl get pods --show-labels // to showl labels of pods
+
+replication controller= ?
+
+replica set= ? 
+
+k get rs  // to show replica set
+
+ k delete pod  <pod-name> // to delete pods
+
+kubectk dekete pods --all // to delete all pods
+
+k delete rs <replicaset-name> // to delete pods
+
+k edit pod  <pod-name> // to edit yaml-file
+
+k edit rs  <replicaset-name>
+
+ab testing = ?
+
+replicaSet = Deployment
+
+k scale deployment rs1 --replicas=5 // to increase replicas
+
+kubectl set image Deployment/<dep-name> <img-name>=<new-img-name/new-tag> --record // to change image 
+
+kubectl rollout history Deployment/<dep-name> // history
+
+kubectl rollout status Deployment/<dep-name> // to see status of image updation
+
+kubectl rollout undo Deployment/<dep-name> --to-revision=<revision-number> // rollback
+
+OR
+
+kubectl rollout undo Deployment/<dep-name> // rollback
+
+k create ns <namespace-nmae> // create namespace
+
+k get pods -n <namespace-name>
+
+k config get-contexts // show corrent context        // k= kubectl
+
+k get ns // to show all namespace
+ 
+k config set-context  --current --namespace <namespace-name> // change context
+ k get pods --all-namespace // list all namespace
+
+kubectl autoscale deployment/<deployment-name> --min=10 --max=15 --cpu-percent=80 // auto scaling
+
+kubectl delete deployment <deployment-name> // to delete complete deployment
+
+kubectl run <deployment-name> --image=docker.io/<img-path> --replicas=<number of replicas> // to run pod directly from docker hub image
+
+kubectl edit deployment <deployment-name> // to edit yaml file and change number of  replicas etc
+
+k expose deployment <deployment-name> --port=<port-number> // to create service ip
+
+k expose deployment <deployment-name> --type=NodePort --target-port=<port-number> // to create service ip
+
+k get service // to list servic ip
+
+k delete sevice <deploymet> // to delete service ip
+
+curl <service-ip> // to send traffic
+
+k get pod -o wide // to get ip of pods
+
+k describe service <deployment-name> // to get detail about service ip
+
+54.197.29.3
+
+ k get pod --all-namespaces // to show namespaces
+
+k create ns <name> // to create namespace
+
+k get ns // to show namespace
+
+k label pod <pod-name> app=hell type=frontend // to add new labels
+
+k label pod <pod-name> app=hell,type=frontend --overwrite // to owerwrite new labels
+
+k get pod -l type=<value> --show-labels
+
+k get pods -L <label-name> -n <namespace-name> --show-labels  // get labels in column
+
+k get pods -l <label-name> -n <namespace-name> --show-labels  // get labels in column
+
+k get pod -l 'type in <value>,<value>' --show-labels // show labesl with condition
+
+k delete pod <pod-name> // to delete pod directly
+
+k delete namespace <namespace-name> // to delete namespace but pods will be deleted as well
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
