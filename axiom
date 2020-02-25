@@ -232,6 +232,8 @@ k delete pod <pod-name> // to delete pod directly
 
 k delete namespace <namespace-name> // to delete namespace but pods will be deleted as well
 
+testing
+
 
 
 
