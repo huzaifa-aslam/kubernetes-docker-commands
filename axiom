@@ -218,9 +218,11 @@ k get ns // to show namespace
 
 k label pod <pod-name> app=hell type=frontend // to add new labels
 
-k label pod <pod-name> app=hell,type=frontend --overwrite // to owerwrite new labels
+k label pod <pod-name> app=hell,type=frontend --overwrite // to modify existing lable labels
 
 k get pod -l type=<value> --show-labels
+
+k get pods -L <key1>,<key2> // to show labels by keys
 
 k get pods -L <label-name> -n <namespace-name> --show-labels  // get labels in column
 
@@ -232,7 +234,9 @@ k delete pod <pod-name> // to delete pod directly
 
 k delete namespace <namespace-name> // to delete namespace but pods will be deleted as well
 
-testing
+k logs <job-name> // to show logs of jobs
+
+
 
 
 
