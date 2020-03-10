@@ -208,9 +208,7 @@ k get pod -o wide // to get ip of pods
 
 k describe service <deployment-name> // to get detail about service ip
 
-54.197.29.3
-
- k get pod --all-namespaces // to show namespaces
+k get pod --all-namespaces // to show namespaces
 
 k create ns <name> // to create namespace
 
@@ -235,6 +233,9 @@ k delete pod <pod-name> // to delete pod directly
 k delete namespace <namespace-name> // to delete namespace but pods will be deleted as well
 
 k logs <job-name> // to show logs of jobs
+k delete job <job-name> // to delete job
+
+kubectl get pods -o wide --sort-by="{.spec.nodeName}" --show-labels // to list pods on sepecific nodes
 
 
 
