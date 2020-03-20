@@ -36,8 +36,8 @@ sudo docker login
 service nginx start
 28-jan-2020 commands
 
- docker image build -t html_js_app .(dot indicates current file) 
-cat Dockerfile // copy files
+ docker image build -t html_js_app .(dot indicates current file) // build image
+cat Dockerfile // to see whats inside the files
 sudo docker tag node_js(file_name) huzaifaslam/node_js(user-name/app-name) // step_1 to push image onto docker hub
 sudo docker push huzaifaslam/node_js(user-name/app-name)// step_2 to push image onto docker hub
 docker pull msaadh909/html-js-app(usr-name/app-name) // to pull image from hub
@@ -149,7 +149,7 @@ k get rs  // to show replica set
 
  k delete pod  <pod-name> // to delete pods
 
-kubectk dekete pods --all // to delete all pods
+kubectk delete pods --all // to delete all pods
 
 k delete rs <replicaset-name> // to delete pods
 
@@ -163,7 +163,7 @@ replicaSet = Deployment
 
 k scale deployment rs1 --replicas=5 // to increase replicas
 
-kubectl set image Deployment/<dep-name> <img-name>=<new-img-name/new-tag> --record // to change image 
+kubectl set image Deployment/<dep-name> <con-name>=<new-img-name/new-tag> --record // to update image 
 
 kubectl rollout history Deployment/<dep-name> // history
 
@@ -208,6 +208,8 @@ k get pod -o wide // to get ip of pods
 
 k describe service <deployment-name> // to get detail about service ip
 
+minikube service <service-name> --url // to access site from outer
+
 k get pod --all-namespaces // to show namespaces
 
 k create ns <name> // to create namespace
@@ -236,6 +238,12 @@ k logs <job-name> // to show logs of jobs
 k delete job <job-name> // to delete job
 
 kubectl get pods -o wide --sort-by="{.spec.nodeName}" --show-labels // to list pods on sepecific nodes
+
+travice ci = ?
+
+kubectl explain <Deployment/pod> --recursive // to get info about yaml file
+
+kubectl explain <Deployment/pod> // to get info about yaml file
 
 
 
