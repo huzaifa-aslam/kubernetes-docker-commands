@@ -36,10 +36,10 @@ sudo docker login
 service nginx start
 28-jan-2020 commands
 
- docker image build -t html_js_app .(dot indicates current file) // build image
+ docker image build -t html_js_app:<tag> .(dot indicates current file) // build image
 cat Dockerfile // to see whats inside the files
-sudo docker tag node_js(file_name) huzaifaslam/node_js(user-name/app-name) // step_1 to push image onto docker hub
-sudo docker push huzaifaslam/node_js(user-name/app-name)// step_2 to push image onto docker hub
+sudo docker tag node_js(file_name) huzaifaslam/node_js(user-name/app-name):<tag> // step_1 to push image onto docker hub
+sudo docker push huzaifaslam/node_js(user-name/app-name):<tag> // step_2 to push image onto docker hub
 docker pull msaadh909/html-js-app(usr-name/app-name) // to pull image from hub
 ng
 
