@@ -15,7 +15,12 @@ cat <file-name> > <new-file-name>
 
 rm -R <folder-name> // to delete folder
 
+
+
 sudo docker container ls
+
+sudo docker container prune // To remove all stopped containers
+
 ctrl+p+q // to passive quit from container
 sudo docker container f48a881e6a9d container-name 
 sudo docker ps -a // to list all running and non running containers
@@ -26,6 +31,8 @@ sudo docker container rm con-name
 sudo docker run -d --name con-name aamirpinger/helloworld   //con=container
 // to run app in browser
 sudo docker run -d -p 9000:80 aamirpinger/helloworld
+
+
 
 docker images // to list all downloaded images
 sudo docker commit a6f3a4a17c46(con-id) mycon(your-con-name) // to commit running container
@@ -66,7 +73,13 @@ docker volume ls
 docker volume inspect <name>(volume-name) 
 sudo docker exec -it <con-id> sh
 
+*************Dockerfile****************************
+1-  FROM nginx
+
+2-  COPY . /usr/share/nginx/html
+
 ***************	minikube****************************
+
 
 minikube start
 
@@ -244,6 +257,8 @@ travice ci = ?
 kubectl explain <Deployment/pod> --recursive // to get info about yaml file
 
 kubectl explain <Deployment/pod> // to get info about yaml file
+
+k exec <replica-name> ls // to enter inside deployments
 
 
 
