@@ -209,7 +209,7 @@ kubectl edit deployment <deployment-name> // to edit yaml file and change number
 
 k expose deployment <deployment-name> --port=<port-number> // to create service ip
 
-k expose deployment <deployment-name> --type=NodePort --target-port=<port-number> // to create service ip
+k expose deployment <deployment-name> --type=NodePort --target-port=<port-number> type=loadBalancer // to create service ip
 
 k get service // to list servic ip
 
