@@ -13,7 +13,7 @@ docker images // to display all images
 
 cat <file-name> > <new-file-name>
 
-rm -R <folder-name> // to delete folder
+rm -R <folder-name> //  delete folder
 
 
 
