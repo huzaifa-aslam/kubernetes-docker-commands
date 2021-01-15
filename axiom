@@ -256,7 +256,7 @@ travice ci = ?
 
 kubectl explain <Deployment/pod> --recursive // to get info about yaml file
 
-kubectl explain <Deployment/pod> // to get info about yaml file
+kubectl explain <Deployment/pod> // to get info about yml file
 
 k exec <replica-name> ls // to enter inside deployments
 
