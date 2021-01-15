@@ -6,7 +6,7 @@ docker image pull alpine(img-name):latest // to download  official image form do
 docker image -it aamirpinger/helloworld(user-name/image-name) sh // to download unofficial image from docker hub
 sudo docker run -it aamirpinger/helloworld sh // to run container in interactive mood(it) and use 'exit' to exit from container
 sudo docker run -d aamirpinger/helloworld // to run container in detech mood(in background)
-sudo docker exec -it con-name sh // to re-enter into a running contianer
+sudo docker exec -it con-name sh // to re enter into a running contianer
 docker image rm alpine:latest  // to remove an image
 docker image ls
 docker images // to display all images
