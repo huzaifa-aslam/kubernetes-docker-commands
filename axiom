@@ -9,7 +9,7 @@ sudo docker run -d aamirpinger/helloworld // to run container in detech mood(in 
 sudo docker exec -it con-name sh // to re enter into a running contianer
 docker image rm alpine:latest  // to remove an image
 docker image ls
-docker images // to display all images
+docker images // to display all ImageS
 
 cat <file-name> > <new-file-name>
 
