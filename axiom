@@ -35,7 +35,7 @@ sudo docker run -d -p 9000:80 aamirpinger/helloworld
 
 
 docker images // to list all downloaded images
-sudo docker commit a6f3a4a17c46(con-id) mycon(your-con-name) // to commit running container
+sudo docker commit a6f3a4a17c46(con-id) mycon(your-con-name) // to commit running   Container
 docker ps -q //to delete all container
 
 //      commmands Push code onto docker
