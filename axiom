@@ -73,7 +73,7 @@ docker volume ls
 docker volume inspect <name>(volume-name) 
 sudo docker exec -it <con-id> sh
 
-*************Dockerfile****************************
+*************Dockerfile start****************************
 1-  FROM nginx
 
 2-  COPY . /usr/share/nginx/html
